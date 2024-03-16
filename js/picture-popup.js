@@ -26,6 +26,8 @@ const drawBigPicturePopup = (miniature) => {
   bigPictureLikes.textContent = likes;
   socialCaption.textContent = description;
 
+  commentsList.textContent = '';
+
   generateComments(comments);
 
   onLoadCommentsClick = (evt) => {

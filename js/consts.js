@@ -50,5 +50,10 @@ const countOfComments = {
   MAX: 25
 };
 
+const AvatarRandomNumber = {
+  MIN: 1,
+  MAX: 6
+};
 
-export {DESCRIPTIONS, COMMENT_MESSAGES, USER_NAMES, POST_COUNT, RangeIDs, RangeIDComment, RangeURLs, RangeLikes, countOfComments};
+
+export {DESCRIPTIONS, COMMENT_MESSAGES, USER_NAMES, POST_COUNT, RangeIDs, RangeIDComment, RangeURLs, RangeLikes, countOfComments, AvatarRandomNumber};
