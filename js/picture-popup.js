@@ -7,7 +7,10 @@ const bigPictureClose = bigPicturePopup.querySelector('.big-picture__cancel');
 const modalOpen = document.querySelector('body');
 
 const commentLoaderButton = bigPicturePopup.querySelector('.comments-loader');
+
 let onLoadCommentsClick;
+let onDocumentKeydown = () => {};
+
 
 const clearBigPicturePopup = () => {
   commentsList.textContent = '';
@@ -37,29 +40,29 @@ const drawBigPicturePopup = (miniature) => {
 
 };
 
-const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closePopup();
-  }
-};
-
-function openPopup () {
+const openPopup = () => {
   bigPicturePopup.classList.remove('hidden');
   modalOpen.classList.add('modal-open');
 
   document.addEventListener('keydown', onDocumentKeydown);
   commentLoaderButton.addEventListener('click', onLoadCommentsClick);
-}
+};
 
-function closePopup() {
+const closePopup = () => {
   bigPicturePopup.classList.add('hidden');
   modalOpen.classList.remove('modal-open');
 
   document.removeEventListener('keydown', onDocumentKeydown);
   commentLoaderButton.removeEventListener('click', onLoadCommentsClick);
   clearBigPicturePopup();
-}
+};
+
+onDocumentKeydown = (evt) => {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closePopup();
+  }
+};
 
 bigPictureClose.addEventListener('click', (evt) => {
   evt.preventDefault();
